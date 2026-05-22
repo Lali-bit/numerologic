@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Все экраны приложения</title>
+    <style>
+        body {
+            font-family: system-ui, 'Segoe UI', sans-serif;
+            background: #111317;
+            color: #e2e2e7;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: scale(1.02);
+        }
+        a {
+            text-decoration: none;
+            color: #c1c6db;
+            font-weight: 500;
+        }
+        .folder-name {
+            font-size: 14px;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Выберите экран</h1>
+    <div class="grid" id="menu"></div>
+    <script>
+        // ВСТАВЬТЕ СВОЙ СПИСОК ПАПОК ВМЕСТО ПРИМЕРА НИЖЕ
+        const folders = [
+            "ru_1", "ru_2", "ru_3", "ru_4", "ru_5", "ru_6", "ru_7", "ru_8", "ru_9", "ru_10"
+        ];
+        
+        const container = document.getElementById('menu');
+        folders.forEach(folder => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const link = document.createElement('a');
+            link.href = `${folder}/code.html`;
+            link.textContent = folder;
+            card.appendChild(link);
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
