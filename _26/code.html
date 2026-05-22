@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Эфирный Оракул - Глубокое погружение: Отшельник</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#c7a5ff",
+                        "primary-fixed": "#dde2f8",
+                        "on-primary-fixed-variant": "#414658",
+                        "on-primary": "#2b3040",
+                        "surface-bright": "#37393d",
+                        "surface-tint": "#c1c6db",
+                        "on-secondary-fixed": "#270057",
+                        "on-surface-variant": "#c6c6cd",
+                        "on-background": "#e2e2e7",
+                        "on-surface": "#e2e2e7",
+                        "surface-container-highest": "#333539",
+                        "secondary-fixed-dim": "#d5baff",
+                        "secondary-container": "#5d15b7",
+                        "on-tertiary-container": "#957700",
+                        "inverse-surface": "#e2e2e7",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#3c2f00",
+                        "surface": "#111317",
+                        "background": "#111317",
+                        "tertiary": "#e9c349",
+                        "primary": "#c1c6db",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary": "#d5baff",
+                        "on-secondary-fixed-variant": "#5d15b7",
+                        "secondary-fixed": "#ecdcff",
+                        "on-secondary": "#42008a",
+                        "primary-fixed-dim": "#c1c6db",
+                        "surface-container-lowest": "#0c0e12",
+                        "tertiary-container": "#110b00",
+                        "inverse-on-surface": "#2e3034",
+                        "tertiary-fixed": "#ffe088",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface-container-high": "#282a2e",
+                        "on-primary-fixed": "#161b2b",
+                        "surface-dim": "#111317",
+                        "surface-container-low": "#1a1c1f",
+                        "on-primary-container": "#74798d",
+                        "primary-container": "#060b1a",
+                        "outline-variant": "#46464c",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-variant": "#333539",
+                        "inverse-primary": "#595e70",
+                        "surface-container": "#1e2023",
+                        "error": "#ffb4ab",
+                        "outline": "#909097",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-xl": "64px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #111317;
+            color: #e2e2e7;
+            overflow-x: hidden
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1)
+        }
+        .amber-glow {
+            box-shadow: 0 0 40px rgba(233, 195, 73, 0.15)
+        }
+        .text-glow-amber {
+            text-shadow: 0 0 8px rgba(233, 195, 73, 0.5)
+        }
+        .cosmic-grain::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCiZrOL-fz9se71d9iGjq5M3To89OIFagx7ozitob4kX2WqYISHdBExSAfog1BXLdkuoNoSZo27QRqQdKbIevY-tM7BrGX1cjzOi3eBEHg81K3bfYg6C2zBGhGRfd49vvbK8pFwxOuRdW0Hpvxt9gNuTRGCKbXTMJPpFyQ2Pe_UUSAC5wqd3FgrgGesLLbOe3xW0XPYqsmcCQPGqwWQF2rmysCDLUXs0ViWQ99yy_W8UqYVoHUAH_It0y0hTwmaYuoq7j_CvONlLDA);
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 10
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+        .radial-progress {
+            --percentage: 80;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(closest-side, #111317 79%, transparent 80% 100%), conic-gradient(#e9c349 calc(var(--percentage) * 1%), rgba(233, 195, 73, 0.1) 0)
+        }
+    </style>
+</head>
+<body class="cosmic-grain">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background/30 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(93,21,183,0.3)]">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" data-icon="menu">menu</button>
+<span class="font-headline-md text-headline-md text-tertiary tracking-widest uppercase">Эфирный Оракул</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="hidden md:block font-label-sm text-label-sm text-on-surface-variant/80 hover:text-tertiary transition-colors cursor-pointer">Архив</span>
+<span class="hidden md:block font-label-sm text-label-sm text-on-surface-variant/80 hover:text-tertiary transition-colors cursor-pointer">Поиск Раскладов</span>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<!-- Side Drawer -->
+<nav class="fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-80 bg-background/95 backdrop-blur-2xl border-r border-white/10 -translate-x-full transition-transform duration-300" id="nav-drawer">
+<div class="p-8 flex flex-col items-center border-b border-white/5 bg-surface-container-low/50">
+<div class="w-20 h-20 rounded-full border-2 border-tertiary p-1 mb-4 overflow-hidden">
+<img alt="Искатель Истины" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIgsiRpiZHQyt92KienYcBA0gEQ_Vz30NNClTw8CQwdw5pebdxZmqQXqptPL3Y-A9TSBPJzAlAWhT0I_UTt1xpulsh-HtkSRBYwkiGHHoFbouR0bp4v8thFbtqEK2-MBaHjmF3K7w8P1fNTRqAy2XEFo4VygvsGQWVyCSfO1cwkWdtxy2ys8rzNsq1f97z8WdWoT9vtIK36IiSjOPub_FX_TXeex-17-CDlcgi8oh1V-GBC8f1JbZUR1SHwi6ynAlgnYIMza48OoA"/>
+</div>
+<h3 class="font-headline-md text-tertiary">Искатель Истины</h3>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Путь Жизни 7</p>
+<span class="mt-2 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary text-[10px] font-bold uppercase tracking-widest border border-secondary/30">Премиум Участник</span>
+</div>
+<div class="flex-1 py-8">
+<div class="flex items-center gap-4 text-on-surface-variant py-3 px-6 hover:bg-white/5 transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined" data-icon="wb_twilight">wb_twilight</span>
+<span class="font-body-md text-body-md">Дневная Вибрация</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant py-3 px-6 hover:bg-white/5 transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined" data-icon="brightness_7">brightness_7</span>
+<span class="font-body-md text-body-md">Натальная Карта</span>
+</div>
+<div class="flex items-center gap-4 bg-secondary-container/20 text-secondary border-l-2 border-tertiary py-3 px-6">
+<span class="material-symbols-outlined" data-icon="style">style</span>
+<span class="font-body-md text-body-md">Значения Карт</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant py-3 px-6 hover:bg-white/5 transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-body-md text-body-md">Сохраненные Расклады</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant py-3 px-6 hover:bg-white/5 transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-body-md text-body-md">Подписка</span>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-16 pb-32">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-surface-container-lowest to-background">
+<div class="absolute top-1/4 right-0 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[150px]"></div>
+<div class="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-tertiary-container/20 rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter container-max-width mx-auto items-center">
+<div class="md:col-span-5 flex justify-center order-2 md:order-1">
+<div class="group relative w-full max-w-sm aspect-[2/3] transition-transform duration-700 hover:scale-[1.02] transform-gpu">
+<div class="relative w-full h-full glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl amber-glow">
+<img alt="Отшельник" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR9znSlB0-OdJXIWmSkzgelTKXa-v4LyN0Eh5bGQFe4sXF7lsiBX9ngLgX5jovA6RdvtQr3Gpznl-sK7K0Egdbh_AEC4WhNZ9GnbcuH7ZNwLOJgL7fVoswIFl0QvXl3TYN6rre0w2B6I-T7mA6t8CpQhEP4k8o3tacBGojyvwRm6JJnOsSuov75Hfq4nUmR7uw8_gQWFNXe6rljM2w7jG91Ax6-VMQRRbMjP7HTz8EzhS43xT1U0_H5Rp5hK1KTaQmatoFhIXc84M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/20 blur-3xl pointer-events-none"></div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 flex flex-col order-1 md:order-2 space-y-stack-lg">
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-3 py-1 rounded-full border border-tertiary/30">Старший Аркан IX</span>
+<span class="font-label-sm text-label-sm text-primary/60 tracking-widest uppercase">Мудрость Тайного</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-[80px] leading-none text-glow-amber">Отшельник</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        Маяк света в безмолвной тьме. Вы вступаете в фазу глубокого самопознания, где единственные истинные ответы кроются в тихих чертогах вашей собственной души.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="flex items-center gap-2 glass-panel px-4 py-3 rounded-xl border border-white/5">
+<span class="material-symbols-outlined text-tertiary" data-icon="public">public</span>
+<span class="font-label-sm text-label-sm">Стихия: Земля</span>
+</div>
+<div class="flex items-center gap-2 glass-panel px-4 py-3 rounded-xl border border-white/5">
+<span class="material-symbols-outlined text-tertiary" data-icon="settings_slow_motion">settings_slow_motion</span>
+<span class="font-label-sm text-label-sm">Управитель: Сатурн</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Insights Section -->
+<section class="container-max-width mx-auto px-margin-mobile md:px-margin-desktop space-y-stack-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Divine Message Card -->
+<div class="md:col-span-2 glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden group hover:border-tertiary/30 transition-all duration-500 scroll-reveal">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-secondary-container/5 rounded-full blur-3xl group-hover:bg-secondary-container/10 transition-colors"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-md text-headline-md">Божественное Послание</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed first-letter:text-5xl first-letter:font-headline-xl first-letter:text-tertiary first-letter:mr-3 first-letter:float-left">
+                            Отстранитесь от шума внешнего мира. Отшельник подсказывает, что сейчас не время для активных действий или социального расширения, но время для священного культивирования уединения. Отойдя от коллективных вибраций, вы позволите своему внутреннему фонарю гореть ярче, освещая пути, которые ранее были скрыты тенями чужих ожиданий.
+                        </p>
+<div class="mt-8 flex gap-4">
+<button class="bg-gradient-to-r from-secondary-container to-secondary text-on-secondary px-8 py-3 rounded-full font-label-sm text-label-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-secondary-container/40 uppercase">Создать личный расклад</button>
+</div>
+</div>
+</div>
+<!-- Vibration Indicator Card -->
+<div class="glass-panel p-8 rounded-3xl flex flex-col items-center justify-center text-center gap-6 scroll-reveal">
+<h3 class="font-label-sm text-label-sm tracking-widest uppercase text-tertiary">Уровень вибрации</h3>
+<div class="relative flex items-center justify-center">
+<div class="radial-progress" style="--percentage: 80;"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-headline-xl text-headline-xl">8/10</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/70 italic">Высокий резонанс с мудростью Сатурна. Время для истины пришло.</p>
+</div>
+</div>
+<!-- Spiritual Insights Cluster -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="glass-panel p-6 rounded-2xl scroll-reveal border border-white/5 hover:bg-white/5 transition-colors">
+<div class="w-10 h-10 bg-tertiary/10 rounded-lg flex items-center justify-center mb-4 border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary" data-icon="self_improvement">self_improvement</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-2">Интроспекция</h4>
+<p class="font-body-md text-on-surface-variant/80 text-sm">Обращение взора внутрь для наблюдения за паттернами подсознания без осуждения.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl scroll-reveal border border-white/5 hover:bg-white/5 transition-colors">
+<div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary" data-icon="landscape">landscape</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-2">Священное Уединение</h4>
+<p class="font-body-md text-on-surface-variant/80 text-sm">Осознание того, что одиночество — это не тоска, а возможность для мощной духовной перезарядки.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl scroll-reveal border border-white/5 hover:bg-white/5 transition-colors">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-2">Внутренний Свет</h4>
+<p class="font-body-md text-on-surface-variant/80 text-sm">Доверие к собственной интуиции как к основному проводнику, не ища внешнего одобрения.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl scroll-reveal border border-white/5 hover:bg-white/5 transition-colors">
+<div class="w-10 h-10 bg-error-container/10 rounded-lg flex items-center justify-center mb-4 border border-error-container/20">
+<span class="material-symbols-outlined text-error" data-icon="history">history</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-2">Древняя Мудрость</h4>
+<p class="font-body-md text-on-surface-variant/80 text-sm">Связь с преемственностью наставников и мудрецов, прошедших путь изоляции до вас.</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Visualization Quote -->
+<section class="mt-stack-xl py-32 relative overflow-hidden flex items-center justify-center text-center">
+<div class="absolute inset-0 z-0">
+<img alt="Космический фон" class="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5EOu6Foc4QavTsCDOwGPIDnzMmjjkcb3XwQXInlpiei9xRfHgwVPzytyGHZ4htZdBdIWup9jGVFAPkjhUr3TLp4s2c1JpGzQ5OPGIDngDnPQrC5gciMpc4LU60g9n-ibDy0TELdUiGNTUDPHnVUv05OcR2R_mmdiecLfpcwKH-aHGwwTI-NSeM6toHYyt1Bl3Io4QlnPPFNw3FlOWZ1b_WpUzi-t8NBcCwXKISSwg-PRUH241dO27IwonfuCH37LTU5YirfypY5c"/>
+<div class="absolute inset-0 bg-background/80"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-3xl space-y-6 scroll-reveal">
+<span class="material-symbols-outlined text-6xl text-tertiary/20" data-icon="format_quote">format_quote</span>
+<p class="font-headline-lg text-headline-lg md:text-headline-xl italic text-primary leading-tight">
+                    "В безмолвии горной вершины звезды говорят на языке души."
+                </p>
+<div class="w-24 h-px bg-tertiary/40 mx-auto mt-8"></div>
+<p class="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant">Мантры горы</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<footer class="fixed bottom-0 w-full z-50 flex justify-around items-center pt-3 pb-6 px-4 bg-background/40 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-5px_20px_rgba(93,21,183,0.15)] md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Числа</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Таро</span>
+</div>
+<div class="flex flex-col items-center justify-center text-tertiary drop-shadow-[0_0_8px_rgba(233,195,73,0.5)] active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Оракул</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Профиль</span>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.querySelector('[data-icon="menu"]');
+            const drawer = document.getElementById('nav-drawer');
+            let drawerOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                drawerOpen = !drawerOpen;
+                drawer.style.transform = drawerOpen ? 'translateX(0)' : 'translateX(-100%)';
+            });
+
+            document.addEventListener('click', (e) => {
+                if (drawerOpen && !drawer.contains(e.target) && e.target !== menuBtn) {
+                    drawerOpen = false;
+                    drawer.style.transform = 'translateX(-100%)';
+                }
+            });
+
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+            const hero = document.querySelector('section');
+            hero.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                const light1 = hero.querySelector('.absolute.top-1\\/4');
+                const light2 = hero.querySelector('.absolute.bottom-1\\/4');
+                if(light1 && light2) {
+                    light1.style.transform = `translate(${x * 40}px, ${y * 40}px)`;
+                    light2.style.transform = `translate(${x * -30}px, ${y * -30}px)`;
+                }
+            });
+        });
+    </script>
+</body></html>

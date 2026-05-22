@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Oracle - Ежедневный Прогноз</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e2e2e7",
+                        "on-surface-variant": "#c6c6cd",
+                        "primary": "#c1c6db",
+                        "tertiary": "#e9c349",
+                        "surface-variant": "#333539",
+                        "on-primary-fixed-variant": "#414658",
+                        "inverse-on-surface": "#2e3034",
+                        "surface-container-lowest": "#0c0e12",
+                        "inverse-primary": "#595e70",
+                        "surface-bright": "#37393d",
+                        "on-background": "#e2e2e7",
+                        "error-container": "#93000a",
+                        "outline-variant": "#46464c",
+                        "primary-fixed-dim": "#c1c6db",
+                        "on-secondary": "#42008a",
+                        "tertiary-fixed": "#ffe088",
+                        "on-tertiary-container": "#957700",
+                        "secondary": "#d5baff",
+                        "secondary-container": "#5d15b7",
+                        "background": "#111317",
+                        "surface": "#111317",
+                        "tertiary-container": "#110b00",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e2e2e7",
+                        "primary-fixed": "#dde2f8",
+                        "secondary-fixed-dim": "#d5baff",
+                        "on-secondary-fixed-variant": "#5d15b7",
+                        "surface-container": "#1e2023",
+                        "surface-tint": "#c1c6db",
+                        "surface-dim": "#111317",
+                        "on-tertiary": "#3c2f00",
+                        "on-secondary-fixed": "#270057",
+                        "outline": "#909097",
+                        "on-primary": "#2b3040",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1a1c1f",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-highest": "#333539",
+                        "surface-container-high": "#282a2e",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "primary-container": "#060b1a",
+                        "secondary-fixed": "#ecdcff",
+                        "on-secondary-container": "#c7a5ff",
+                        "on-primary-fixed": "#161b2b",
+                        "on-error": "#690005",
+                        "on-primary-container": "#74798d",
+                        "tertiary-fixed-dim": "#e9c349"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max-width": "1200px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-xl": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-xl": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #111317;
+            background-attachment: fixed;
+            color: #e2e2e7;
+            -webkit-font-smoothing: antialiased
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.05)
+        }
+        .ethereal-glow {
+            box-shadow: 0 0 20px rgba(193, 198, 219, 0.1)
+        }
+        .inner-light-border {
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.05)
+        }
+        .grain-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDJ5-2X2fWIcz11ZFwoRBc14Suoqn48JfFryV-0uO0V5cu_tqM2OPJEAgluSinkk_ng6efoyaqH1l0B8ZLKqNB6XTNt5VQboA_dmaHL9YhXq-DlxgnN02b6lnnQc9Ssp03itf1yUUN4LDH59hmPQU1WftbSGDxl37F0U0U1VZV-RZrOklw857R14kUm0XrG7n3oH4iKlflx-ca4G-JaW9Fb77wvNJbcFrAhcK6bX0PpoqiCH6xl6loa7PmS2EtUHdL5rXul_4IMfpo);
+            z-index: 9999
+        }
+        .calendar-active {
+            background: linear-gradient(135deg, #e9c349 0%, #ffe088 100%);
+            color: #241a00
+        }
+        .star-active {
+            color: #e9c349;
+            text-shadow: 0 0 8px rgba(233, 195, 73, 0.6)
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<div class="grain-texture"></div>
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary p-[1px]">
+<img alt="User" class="w-full h-full rounded-full object-cover" data-alt="A portrait of a mysterious user with glowing ethereal highlights, styled as a high-end digital painting with deep purple and indigo tones. The lighting is soft and cinematic, emphasizing a sense of inner wisdom and mystical connection. The background is a blurred cosmic nebula." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdrI1SEvESzZf7QNZbUephtSCq-FQg9P3rmUF-s1Mp2U9BGuDJJIi5naN_lk96T9WU46I2yUUUCCLPZuBtEoBkf4ntBkaz6fcGmO97l2QLoQkbaONg9kaMKljY0uxnrOEpNrO6J_H4oW_qkF56Tk9oa-AegRrtJRlU3lPfTk7y7NSs_ufKlKNKwNGBOo5fG7SZNU27ldo0YyE4c9WRwZCxE4DWvMMFvSjWsuAnYvRETNlUmj-UGOIdwEBIF8ztYqwrp_QBBdWBupY"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-tertiary dark:text-tertiary-fixed italic">Ежедневный Прогноз</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface hover:bg-white/5 transition-colors p-2 rounded-full">settings</button>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-container-max-width mx-auto">
+<!-- Calendar Grid -->
+<section class="mb-stack-xl">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Май 2024</h2>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-primary p-1">chevron_left</button>
+<button class="material-symbols-outlined text-primary p-1">chevron_right</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<div class="flex flex-col items-center py-3 rounded-xl border border-white/5 bg-white/2 opacity-40">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Пн</span>
+<span class="font-headline-md text-headline-md">13</span>
+</div>
+<div class="flex flex-col items-center py-3 rounded-xl border border-white/5 bg-white/2 opacity-40">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Вт</span>
+<span class="font-headline-md text-headline-md">14</span>
+</div>
+<div class="flex flex-col items-center py-3 rounded-xl border border-white/5 bg-white/2 opacity-40">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Ср</span>
+<span class="font-headline-md text-headline-md">15</span>
+</div>
+<div class="flex flex-col items-center py-4 rounded-xl calendar-active shadow-lg shadow-tertiary/20">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Чт</span>
+<span class="font-headline-md text-headline-md font-bold">16</span>
+</div>
+<div class="flex flex-col items-center py-3 rounded-xl border border-white/5 bg-white/2">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Пт</span>
+<span class="font-headline-md text-headline-md">17</span>
+</div>
+<div class="flex flex-col items-center py-3 rounded-xl border border-white/5 bg-white/2">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Сб</span>
+<span class="font-headline-md text-headline-md">18</span>
+</div>
+<div class="flex flex-col items-center py-3 rounded-xl border border-white/5 bg-white/2">
+<span class="font-label-sm text-label-sm mb-1 uppercase">Вс</span>
+<span class="font-headline-md text-headline-md">19</span>
+</div>
+</div>
+</section>
+<!-- Energy Hero Section -->
+<section class="mb-stack-xl space-y-stack-md">
+<div class="glass-panel rounded-3xl p-8 relative overflow-hidden ethereal-glow">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-tertiary/10 rounded-full blur-[80px]"></div>
+<div class="absolute -left-10 bottom-0 w-48 h-48 bg-secondary/10 rounded-full blur-[60px]"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 text-tertiary mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em]">Вибрация Дня</span>
+</div>
+<div class="flex items-baseline gap-4 mb-4">
+<span class="font-headline-xl text-[64px] text-on-surface italic">8</span>
+<span class="font-headline-md text-headline-md text-primary/80">Путь Достижений</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl">
+                    Сегодняшний день пропитан энергией Сатурна. Это время для структурирования хаоса и принятия важных материальных решений. Вселенная поддерживает тех, кто проявляет настойчивость и честность в своих намерениях. Энергия восьмерки требует баланса между духовным и земным.
+                </p>
+</div>
+</div>
+</section>
+<!-- Sphere Advice (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Work Card -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col h-full inner-light-border">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">work</span>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-on-surface-variant/20 text-[18px]">star</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Карьера</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                Благоприятное время для завершения долгосрочных проектов. Ваши усилия будут замечены руководством. Избегайте поспешных сделок.
+            </p>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="text-tertiary font-label-sm text-label-sm uppercase">Совет: Проявите лидерство</span>
+</div>
+</div>
+<!-- Love Card -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col h-full inner-light-border">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">favorite</span>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-on-surface-variant/20 text-[18px]">star</span>
+<span class="material-symbols-outlined text-on-surface-variant/20 text-[18px]">star</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Отношения</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                Возможны моменты холодности или недопонимания. Сосредоточьтесь на общих целях, а не на мелких обидах. День требует терпения.
+            </p>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="text-tertiary font-label-sm text-label-sm uppercase">Совет: Слушайте сердцем</span>
+</div>
+</div>
+<!-- Health Card -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col h-full inner-light-border">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">spa</span>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined star-active text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Здоровье</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                Высокий уровень жизненной энергии. Хороший день для начала цикла физических упражнений или очищения организма.
+            </p>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="text-tertiary font-label-sm text-label-sm uppercase">Совет: Активный отдых</span>
+</div>
+</div>
+</section>
+<!-- Subtle Call to Action -->
+<section class="mt-stack-xl flex justify-center">
+<button class="bg-gradient-to-r from-secondary-container to-on-secondary px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest text-on-secondary-container shadow-lg hover:scale-105 transition-transform duration-300 ethereal-glow">
+            Заказать детальный разбор
+        </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container/40 dark:bg-surface-container/40 backdrop-blur-2xl border-t border-white/5 rounded-t-xl shadow-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-label-sm text-[10px] uppercase tracking-widest">Главная</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-sm text-[10px] uppercase tracking-widest">Карта</span>
+</button>
+<button class="flex flex-col items-center justify-center text-tertiary dark:text-tertiary-fixed active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">wb_twilight</span>
+<span class="font-label-sm text-[10px] uppercase tracking-widest">Прогноз</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">favorite</span>
+<span class="font-label-sm text-[10px] uppercase tracking-widest">Союз</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">menu</span>
+<span class="font-label-sm text-[10px] uppercase tracking-widest">Меню</span>
+</button>
+</nav>
+<script>
+    // Atmospheric floating dots effect
+    const createParticle = () => {
+        const particle = document.createElement('div');
+        const size = Math.random() * 2 + 1;
+        particle.style.position = 'fixed';
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.background = 'rgba(233, 195, 73, 0.3)';
+        particle.style.borderRadius = '50%';
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.pointerEvents = 'none';
+        particle.style.zIndex = '0';
+        document.body.appendChild(particle);
+
+        const duration = Math.random() * 10000 + 10000;
+        const animation = particle.animate([
+            { transform: 'translate(0, 0)', opacity: 0 },
+            { transform: `translate(${Math.random() * 100 - 50}px, -100px)`, opacity: 0.8, offset: 0.5 },
+            { transform: `translate(${Math.random() * 200 - 100}px, -200px)`, opacity: 0 }
+        ], {
+            duration: duration,
+            iterations: Infinity
+        });
+    };
+
+    for (let i = 0; i < 30; i++) {
+        createParticle();
+    }
+</script>
+</body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Oracle - Draw Your Fate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#c7a5ff",
+                        "primary-fixed": "#dde2f8",
+                        "on-primary-fixed-variant": "#414658",
+                        "on-primary": "#2b3040",
+                        "surface-bright": "#37393d",
+                        "surface-tint": "#c1c6db",
+                        "on-secondary-fixed": "#270057",
+                        "on-surface-variant": "#c6c6cd",
+                        "on-background": "#e2e2e7",
+                        "on-surface": "#e2e2e7",
+                        "surface-container-highest": "#333539",
+                        "secondary-fixed-dim": "#d5baff",
+                        "secondary-container": "#5d15b7",
+                        "on-tertiary-container": "#957700",
+                        "inverse-surface": "#e2e2e7",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#3c2f00",
+                        "surface": "#111317",
+                        "background": "#111317",
+                        "tertiary": "#e9c349",
+                        "primary": "#c1c6db",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary": "#d5baff",
+                        "on-secondary-fixed-variant": "#5d15b7",
+                        "secondary-fixed": "#ecdcff",
+                        "on-secondary": "#42008a",
+                        "primary-fixed-dim": "#c1c6db",
+                        "surface-container-lowest": "#0c0e12",
+                        "tertiary-container": "#110b00",
+                        "inverse-on-surface": "#2e3034",
+                        "tertiary-fixed": "#ffe088",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface-container-high": "#282a2e",
+                        "on-primary-fixed": "#161b2b",
+                        "surface-dim": "#111317",
+                        "surface-container-low": "#1a1c1f",
+                        "on-primary-container": "#74798d",
+                        "primary-container": "#060b1a",
+                        "outline-variant": "#46464c",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-variant": "#333539",
+                        "inverse-primary": "#595e70",
+                        "surface-container": "#1e2023",
+                        "error": "#ffb4ab",
+                        "outline": "#909097",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-xl": "64px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+}
+.cosmic-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(93, 21, 183, 0.15) 0%, rgba(17, 19, 23, 1) 100%)
+}
+.active-card-glow {
+    box-shadow: 0 0 30px rgba(233, 195, 73, 0.4), inset 0 0 15px rgba(233, 195, 73, 0.2);
+    animation: pulse-glow 3s infinite
+}
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(233, 195, 73, 0.3), inset 0 0 10px rgba(233, 195, 73, 0.1); }
+    50% { box-shadow: 0 0 45px rgba(233, 195, 73, 0.6), inset 0 0 20px rgba(233, 195, 73, 0.3); }
+}
+.shimmer {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 4s infinite linear
+}
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.grain {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCgN74xAbfCR5TfY6Gr9rk_BnWgfo5UxocLlYaHifWVGku2shxtz-NoMgpsJuu4ysHLYPG70nsKVC74HubyyMjavhVKMHUJyD7Kj6c3kaIzcm4m26WuLZ0Uv9gz-iVc4qN-x7m-LqANp0KaaMvix_RzMqYwlkCdwmIAomK6UKMbby-eGZB-mKtihTEhqhZYPJiaWgogDseQYCKwFiAKK_RDe3hVPmY7Q59go_Yet3peHftO3P9kjBahgmo20LA-gKLqxmmAhhqcQJg)
+}
+.sacred-geometry {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAajc4ssZnKmT1ewIxpQODXmMixxWNLsIdaMCHsxIMes-sJ81XRtbfIY8LOOgFiAXg_kZzcof_To0guPQ91D3gBVQ4xrkiAw7Kq-gtIqCgQlQ4EE4ON9XoUuMk1wCG19Fh37JIRnkKncqWMT04F3aYl5DRY4YMdUcyFy4FkN-KBTHF_Nnw1NAmbgq0_pJ5l3zSH0t4CzACWkVI8gCktfP_kvtC4s_A6SscPfmCLWi74FP7Ou2uaD4i8mGOB5PQXkIlQTtf2D1jfXKA);
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: screen;
+    opacity: 0.4
+}
+
+/* 3D Flip Styles */
+.card-perspective {
+    perspective: 1200px;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 800ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+.card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+.card-front {
+    transform: rotateY(180deg);
+}
+.card-back {
+    transform: rotateY(0deg);
+}
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden selection:bg-tertiary/30">
+<div class="grain"></div>
+<!-- Background Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden">
+<div class="absolute inset-0 bg-[#0c0e12]"></div>
+<div class="absolute inset-0 cosmic-gradient"></div>
+<div class="absolute inset-0 sacred-geometry"></div>
+<!-- Nebula Atmosphere -->
+<div class="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] opacity-40 blur-[120px]" style="background: radial-gradient(circle, rgba(93, 21, 183, 0.4) 0%, transparent 60%);"></div>
+<div class="absolute -bottom-1/4 -right-1/4 w-[150%] h-[150%] opacity-30 blur-[100px]" style="background: radial-gradient(circle, rgba(233, 195, 73, 0.2) 0%, transparent 60%);"></div>
+</div>
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background/30 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(93,21,183,0.3)]">
+<button class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-tertiary tracking-widest uppercase">Aetheric Oracle</h1>
+<button class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<!-- Main Content: The Card Ritual -->
+<main class="relative z-10 w-full h-screen flex flex-col items-center justify-center pt-16 pb-24">
+<div class="relative w-full max-w-[900px] h-[500px] flex items-center justify-center">
+<!-- Central Focal Point -->
+<div class="absolute w-48 h-72 rounded-xl border border-white/5 bg-white/5 backdrop-blur-3xl z-0 scale-110 opacity-30"></div>
+<!-- Card Spread (Arc Layout) -->
+<div class="relative w-full h-full flex items-center justify-center" id="card-fan">
+<!-- Active Card with 3D Flip Container -->
+<div class="absolute w-44 h-64 card-perspective z-40" id="active-card-container">
+<div class="card-inner w-full h-full cursor-pointer transition-all duration-700 hover:-translate-y-8" id="card-inner" onclick="handleDraw()">
+<!-- Back Side (Initial View) -->
+<div class="card-face card-back bg-surface-container-highest/60 backdrop-blur-xl border-2 border-tertiary active-card-glow flex flex-col items-center justify-center">
+<div class="absolute inset-0 shimmer"></div>
+<div class="absolute inset-4 border border-tertiary/20 rounded-lg flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-tertiary mb-4 opacity-40">auto_awesome</span>
+<div class="w-12 h-[1px] bg-tertiary/30"></div>
+</div>
+<img alt="Tarot Card Back" class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWmcP-ZCKT-8Xggu5q5EWbSXakaUid6SS_lSFR9rdisGD7sHiRA1ZsUTtKiiDqXy2gdWPpPytPEsrO5GeZdHdUZe-hnt_Ogm-eTko-tgBNxnpYtaGYAcUVBJDGSKVb-0KGjw2RuKDVbOaQ-LlmNjOR5xyeCLFCMKZ8R_lNR5TSLQoR3SkY7FNBHd5L_YLKFjLZJCBaK5N_CGCWGolFGCL4HbGWU8gsWJvbKAhtYjHhkCCbXAW0Q4eEq8dvlHGKoOfxfu9qWs9T9ic"/>
+</div>
+<!-- Front Side (The High Priestess) -->
+<div class="card-face card-front border-2 border-tertiary shadow-[0_0_40px_rgba(233,195,73,0.4)]">
+<img alt="The High Priestess" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ui9wOIJIa9HBmiJZDzv3DChERhpmbEUMq7CzhW7hkKRdSWAl-tH3oZSPb3idEmqEFVeodGwzwyQuMzWWaaZhRoP6cb35WkbdnuI0oQzGjv6HPKOevs-GWrwuSTntb9S0fJQ-HbcGIpUn3FKQFO52AWK2gHHDmSdBpx_hzolJZ-LNwQnDOrJS5anipowUPU3HwWJI6uiR4T4n--T5M6qskVmwByZX-1_2e3WtvXxsLcGaIrypu2mk5X_egA"/>
+</div>
+</div>
+</div>
+<!-- Fan Cards (Decorative) -->
+<div class="absolute w-36 h-56 bg-surface-container/40 backdrop-blur-md rounded-lg border border-white/10 -rotate-[30deg] -translate-x-48 translate-y-12 opacity-40"></div>
+<div class="absolute w-36 h-56 bg-surface-container/40 backdrop-blur-md rounded-lg border border-white/10 -rotate-[15deg] -translate-x-28 translate-y-4 opacity-60"></div>
+<div class="absolute w-36 h-56 bg-surface-container/40 backdrop-blur-md rounded-lg border border-white/10 rotate-[15deg] translate-x-28 translate-y-4 opacity-60"></div>
+<div class="absolute w-36 h-56 bg-surface-container/40 backdrop-blur-md rounded-lg border border-white/10 rotate-[30deg] translate-x-48 translate-y-12 opacity-40"></div>
+<div class="absolute w-32 h-48 bg-surface-container/30 backdrop-blur-sm rounded-lg border border-white/5 -rotate-[45deg] -translate-x-64 translate-y-24 opacity-20"></div>
+<div class="absolute w-32 h-48 bg-surface-container/30 backdrop-blur-sm rounded-lg border border-white/5 rotate-[45deg] translate-x-64 translate-y-24 opacity-20"></div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="mt-stack-xl flex flex-col items-center gap-stack-lg z-20">
+<div class="text-center transition-opacity duration-500" id="intro-text">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2 tracking-wide">The Universe Awaits</h2>
+<p class="font-body-md text-on-surface-variant max-w-xs mx-auto">Focus your intention on the path ahead and reach into the ether.</p>
+</div>
+<div class="relative flex flex-col items-center">
+<!-- Initial Draw Button -->
+<button class="group relative px-12 py-4 bg-gradient-to-r from-secondary-container to-secondary rounded-full shadow-[0_0_20px_rgba(93,21,183,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden" id="draw-btn" onclick="handleDraw()">
+<span class="relative z-10 font-label-sm text-label-sm uppercase tracking-widest text-on-secondary-container">Draw Your Card</span>
+<div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+</button>
+<!-- Interpretation Button (Hidden Initially) -->
+<button class="hidden opacity-0 px-10 py-4 bg-transparent border border-tertiary/50 text-tertiary rounded-full shadow-[0_0_15px_rgba(233,195,73,0.2)] transition-all duration-1000 hover:bg-tertiary/10 flex items-center gap-2" id="interpretation-btn" onclick="location.reload()">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">ПОГРУЗИТЬСЯ В ТОЛКОВАНИЕ</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center pt-3 pb-6 px-4 bg-background/40 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-5px_20px_rgba(93,21,183,0.15)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Numbers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Tarot</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary drop-shadow-[0_0_8px_rgba(233,195,73,0.5)] scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Oracle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        function handleDraw() {
+            const cardInner = document.getElementById('card-inner');
+            const drawBtn = document.getElementById('draw-btn');
+            const interpBtn = document.getElementById('interpretation-btn');
+            const introText = document.getElementById('intro-text');
+            
+            if (cardInner.classList.contains('is-flipped')) return;
+
+            // Trigger Flip Animation
+            cardInner.classList.add('is-flipped');
+            
+            // Fade out initial UI elements
+            drawBtn.style.opacity = '0';
+            drawBtn.style.pointerEvents = 'none';
+            introText.style.opacity = '0';
+            
+            setTimeout(() => {
+                drawBtn.classList.add('hidden');
+                interpBtn.classList.remove('hidden');
+                
+                // Trigger Fade-in for interpretation button
+                requestAnimationFrame(() => {
+                    interpBtn.classList.add('opacity-100');
+                });
+            }, 800);
+        }
+
+        // Particle background effect
+        const canvas = document.createElement('canvas');
+        canvas.className = 'fixed inset-0 pointer-events-none z-[2]';
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+            }
+            draw() {
+                ctx.fillStyle = `rgba(233, 195, 73, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate();
+    </script>
+</body></html>

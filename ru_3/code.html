@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #111317;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(93, 21, 183, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(233, 195, 73, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .aura-glow {
+            filter: blur(40px);
+            opacity: 0.6;
+            mix-blend-mode: screen;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom date input styling to match theme better */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8);
+            cursor: pointer;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e2e2e7",
+                        "on-surface-variant": "#c6c6cd",
+                        "primary": "#c1c6db",
+                        "tertiary": "#e9c349",
+                        "surface-variant": "#333539",
+                        "on-primary-fixed-variant": "#414658",
+                        "inverse-on-surface": "#2e3034",
+                        "surface-container-lowest": "#0c0e12",
+                        "inverse-primary": "#595e70",
+                        "surface-bright": "#37393d",
+                        "on-background": "#e2e2e7",
+                        "error-container": "#93000a",
+                        "outline-variant": "#46464c",
+                        "primary-fixed-dim": "#c1c6db",
+                        "on-secondary": "#42008a",
+                        "tertiary-fixed": "#ffe088",
+                        "on-tertiary-container": "#957700",
+                        "secondary": "#d5baff",
+                        "secondary-container": "#5d15b7",
+                        "background": "#111317",
+                        "surface": "#111317",
+                        "tertiary-container": "#110b00",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e2e2e7",
+                        "primary-fixed": "#dde2f8",
+                        "secondary-fixed-dim": "#d5baff",
+                        "on-secondary-fixed-variant": "#5d15b7",
+                        "surface-container": "#1e2023",
+                        "surface-tint": "#c1c6db",
+                        "surface-dim": "#111317",
+                        "on-tertiary": "#3c2f00",
+                        "on-secondary-fixed": "#270057",
+                        "outline": "#909097",
+                        "on-primary": "#2b3040",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1a1c1f",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-highest": "#333539",
+                        "surface-container-high": "#282a2e",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "primary-container": "#060b1a",
+                        "secondary-fixed": "#ecdcff",
+                        "on-secondary-container": "#c7a5ff",
+                        "on-primary-fixed": "#161b2b",
+                        "on-error": "#690005",
+                        "on-primary-container": "#74798d",
+                        "tertiary-fixed-dim": "#e9c349"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max-width": "1200px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-xl": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-xl": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-secondary-container to-tertiary flex items-center justify-center overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcESurBXqtkL4ugargrU-GgqnrsCqJWXoT-uf7-lpC-MIGALWtHEoreLU30WNsCbzWtnBYfzmQbuRpLgXqvMo29AluZaCI5hYlkDcgKN8KMvdJV5e1pku-F0xVlOjPHaAMuFtZxLlWgTfBSRGuWuhaqXW5UKTLPPF4y4pg1zbS8_hMEG43jJgc3hid5GFbxANMC06myQvjZHXFgx2Onpmf_a27zDP-qVvjPMZMneCVl4G16Ers0BuIQyj73W-bRFQrHw3x9Kfc8pY"/>
+</div>
+<span class="font-headline-md text-headline-md text-tertiary dark:text-tertiary-fixed italic">Aetheric Oracle</span>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-primary hover:bg-white/5 transition-colors p-2 rounded-full">settings</button>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-container-max-width mx-auto">
+<!-- Hero Section -->
+<section class="text-center mb-stack-xl">
+<h1 class="font-headline-xl text-headline-xl mb-stack-sm text-on-surface uppercase tracking-tight">Анализ Совместимости</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Откройте сакральную геометрию вашего союза через призму древних чисел и небесных вибраций.</p>
+</section>
+<!-- Input Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-stack-xl">
+<!-- Partner 1 -->
+<div class="glass-panel p-stack-lg rounded-xl relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container/20 rounded-full blur-3xl transition-all group-hover:bg-secondary-container/40"></div>
+<h3 class="font-label-sm text-label-sm uppercase mb-stack-md text-secondary">Партнер I</h3>
+<div class="space-y-stack-lg">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 transition-all py-2 text-body-lg placeholder:text-on-surface-variant/40" placeholder="Имя" type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 transition-all py-2 text-body-lg text-on-surface-variant appearance-none" type="date"/>
+</div>
+</div>
+</div>
+<!-- Partner 2 -->
+<div class="glass-panel p-stack-lg rounded-xl relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary/10 rounded-full blur-3xl transition-all group-hover:bg-tertiary/20"></div>
+<h3 class="font-label-sm text-label-sm uppercase mb-stack-md text-tertiary">Партнер II</h3>
+<div class="space-y-stack-lg">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-tertiary focus:ring-0 transition-all py-2 text-body-lg placeholder:text-on-surface-variant/40" placeholder="Имя" type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-tertiary focus:ring-0 transition-all py-2 text-body-lg text-on-surface-variant appearance-none" type="date"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="flex justify-center mb-stack-xl">
+<button class="group relative px-10 py-4 bg-gradient-to-r from-secondary-container to-inverse-primary rounded-full overflow-hidden shadow-[0_0_20px_rgba(93,21,183,0.3)] hover:shadow-[0_0_35px_rgba(93,21,183,0.5)] transition-all active:scale-95" onclick="calculateUnion()">
+<span class="relative z-10 font-label-sm text-label-sm uppercase text-white tracking-widest">Рассчитать союз</span>
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+<!-- Result Section (Hidden by default, triggered by JS) -->
+<div class="hidden opacity-0 transition-all duration-1000 translate-y-8" id="results">
+<div class="glass-panel p-stack-xl rounded-xl relative overflow-hidden">
+<!-- Aura Intersection Visualization -->
+<div class="flex flex-col items-center justify-center mb-stack-xl relative py-12">
+<div class="absolute inset-0 flex items-center justify-center opacity-30">
+<div class="w-64 h-64 aura-glow bg-secondary-container rounded-full translate-x-12 animate-pulse"></div>
+<div class="w-64 h-64 aura-glow bg-tertiary rounded-full -translate-x-12 animate-pulse" style="animation-delay: 1s;"></div>
+</div>
+<div class="relative z-10 text-center">
+<div class="text-[84px] font-headline-xl text-white mb-2 leading-none">87%</div>
+<div class="font-label-sm text-label-sm uppercase text-tertiary tracking-widest">Общий резонанс</div>
+</div>
+</div>
+<!-- Bento Grid Aspects -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Aspect 1 -->
+<div class="p-stack-md rounded-lg border border-white/5 bg-white/5 flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-secondary">favorite</span>
+<span class="font-label-sm text-label-sm text-secondary">92%</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Духовная связь</h4>
+</div>
+<div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Aspect 2 -->
+<div class="p-stack-md rounded-lg border border-white/5 bg-white/5 flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-tertiary">wb_sunny</span>
+<span class="font-label-sm text-label-sm text-tertiary">74%</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Энергетика</h4>
+</div>
+<div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 74%"></div>
+</div>
+</div>
+<!-- Aspect 3 -->
+<div class="p-stack-md rounded-lg border border-white/5 bg-white/5 flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary">81%</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Карма</h4>
+</div>
+<div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 81%"></div>
+</div>
+</div>
+</div>
+<div class="mt-stack-lg text-center px-4">
+<p class="font-body-md text-body-md text-on-surface-variant italic">«Ваши вибрации создают гармоничный аккорд, способный трансформировать обыденность в сакральный опыт.»</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container/40 dark:bg-surface-container/40 backdrop-blur-2xl border-t border-white/5 rounded-t-xl shadow-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">Главная</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">Карта</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined">wb_twilight</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">Прогноз</span>
+</div>
+<div class="flex flex-col items-center justify-center text-tertiary dark:text-tertiary-fixed scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">Союз</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">Меню</span>
+</div>
+</nav>
+<script>
+        function calculateUnion() {
+            const results = document.getElementById('results');
+            results.classList.remove('hidden');
+            setTimeout(() => {
+                results.classList.remove('opacity-0', 'translate-y-8');
+            }, 100);
+            
+            // Subtle scroll to results
+            window.scrollTo({
+                top: results.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body></html>

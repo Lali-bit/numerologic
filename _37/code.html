@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Oracle - Виджеты Потока</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-container": "#c7a5ff",
+                "secondary-fixed-dim": "#d5baff",
+                "secondary-fixed": "#ecdcff",
+                "inverse-primary": "#595e70",
+                "primary": "#c1c6db",
+                "surface-variant": "#333539",
+                "tertiary": "#e9c349",
+                "tertiary-container": "#110b00",
+                "surface-container-lowest": "#0c0e12",
+                "surface-container-low": "#1a1c1f",
+                "on-tertiary-fixed": "#241a00",
+                "on-secondary": "#42008a",
+                "surface-container": "#1e2023",
+                "on-surface": "#e2e2e7",
+                "on-error": "#690005",
+                "secondary": "#d5baff",
+                "on-background": "#e2e2e7",
+                "surface-bright": "#37393d",
+                "tertiary-fixed": "#ffe088",
+                "error-container": "#93000a",
+                "on-tertiary-fixed-variant": "#574500",
+                "on-secondary-fixed": "#270057",
+                "surface-tint": "#c1c6db",
+                "on-tertiary-container": "#957700",
+                "surface-dim": "#111317",
+                "surface": "#111317",
+                "on-error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#5d15b7",
+                "outline-variant": "#46464c",
+                "on-primary": "#2b3040",
+                "surface-container-high": "#282a2e",
+                "on-primary-fixed": "#161b2b",
+                "primary-fixed": "#dde2f8",
+                "on-primary-container": "#74798d",
+                "inverse-on-surface": "#2e3034",
+                "inverse-surface": "#e2e2e7",
+                "secondary-container": "#5d15b7",
+                "primary-container": "#060b1a",
+                "error": "#ffb4ab",
+                "outline": "#909097",
+                "on-surface-variant": "#c6c6cd",
+                "background": "#111317",
+                "on-primary-fixed-variant": "#414658",
+                "primary-fixed-dim": "#c1c6db",
+                "on-tertiary": "#3c2f00",
+                "surface-container-highest": "#333539",
+                "tertiary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-sm": "8px",
+                "stack-md": "16px",
+                "margin-mobile": "20px",
+                "stack-lg": "32px",
+                "container-max-width": "1200px",
+                "stack-xl": "64px",
+                "gutter": "24px",
+                "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                "headline-xl": ["EB Garamond"],
+                "body-lg": ["Manrope"],
+                "headline-lg-mobile": ["EB Garamond"],
+                "headline-md": ["EB Garamond"],
+                "headline-lg": ["EB Garamond"],
+                "body-md": ["Manrope"],
+                "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #111317;
+            background-image: radial-gradient(circle at 20% 20%, rgba(93, 21, 183, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(233, 195, 73, 0.05) 0%, transparent 40%);
+            color: #e2e2e7;
+            overflow-x: hidden
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.05)
+        }
+        .inner-glow-top {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.1)
+        }
+        .cosmic-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCu3-Sz5j5trLNE1e16GzBvfB5iiEKqMkMA_HUp75-EDVZFOZRSN2AVX200sMurgRv_033v8ADxmKTPGLto_YfZfbezzfYfh3L2PJakydnvzaw8Mm5xeW2x1FW8dn4oS5bz87DqRUnaGm2tia5dELq8n10S3SidMcpR0vqdxYbPWkL044iGoBpSt-epSuAosY1CMhX905otwYyx2XY74Mwi8jLRmwcrvY88BwgsDNVZJCk_zqhfe61LQ-2FTd2SB7ZRHM2TEDQfTLg);
+            z-index: 100
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen">
+<div class="cosmic-grain"></div>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface/40 backdrop-blur-xl border-b border-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">language</span>
+<h1 class="font-headline-md text-headline-md-mobile text-tertiary tracking-widest uppercase">Aetheric Oracle</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-label-sm text-label-sm text-tertiary font-bold hover:text-tertiary transition-colors" href="#">Главная</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-tertiary transition-colors" href="#">Прогноз</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-tertiary transition-colors" href="#">Профиль</a>
+</nav>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-all">auto_awesome</span>
+</div>
+</header>
+<main class="pt-24 pb-32 max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center mb-stack-xl">
+<h2 class="font-headline-xl text-headline-xl mb-stack-sm text-on-surface">Виджеты Потока</h2>
+<p class="max-w-2xl font-body-lg text-body-lg text-on-surface-variant opacity-80">
+                Ваш личный оракул теперь всегда под рукой. Интегрируйте мудрость небес и чисел прямо в интерфейс вашего смартфона.
+            </p>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Side: Phone Preview -->
+<div class="lg:col-span-7 flex justify-center order-2 lg:order-1">
+<div class="relative group max-w-sm md:max-w-md transition-transform duration-700 ease-out" id="preview-container">
+<div class="absolute -inset-4 bg-secondary/10 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
+<div class="relative rounded-[3rem] overflow-hidden border-8 border-surface-container-high shadow-2xl bg-black aspect-[9/19.5] w-full">
+<img alt="Предпросмотр виджетов" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuApZuw-YJQsp9QGGsscTxfRofoFzroRA-9ELGxWDsd0SjSIOu-5amw9pJV9XN3O0rwWMselXCrFLPLftPQIq6yG-d9GYJXylW5aJJ2iYArwsaiRuHQZoPd-JJxjQIG6RdCPk8op9uFcQYtuR1JIyRf_8GEv41XmGofYF0CjpIZfzava_9Bgh2bU34LTg2MBDz3BnSEmBz8zN-AkUh1KJckK0XHGRzzTj1Cnn8I7j8-KKz66QMdTdSSTElCeNC5caoG3rdP2qqZ4"/>
+<!-- Decorative overlay to sell the "iOS Screen" look -->
+<div class="absolute top-0 w-full h-8 flex justify-center">
+<div class="w-1/3 h-6 bg-black rounded-b-2xl"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Widget Descriptions (Bento Style) -->
+<div class="lg:col-span-5 flex flex-col gap-gutter order-1 lg:order-2">
+<!-- Widget 1: Число Дня -->
+<div class="glass-panel inner-glow-top p-stack-lg rounded-xl flex flex-col gap-stack-md transform hover:-translate-y-1 transition-transform duration-500 cursor-default">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary text-3xl">filter_7</span>
+<span class="font-label-sm text-label-sm text-tertiary px-3 py-1 bg-tertiary/10 rounded-full border border-tertiary/20">МАЛЫЙ</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">Число Дня</h3>
+<p class="font-body-md text-on-surface-variant/80">Мгновенный доступ к вашей главной вибрации. Показывает управляющее число и краткое напутствие для принятия верных решений.</p>
+</div>
+</div>
+<!-- Widget 2: Планетарный Поток -->
+<div class="glass-panel inner-glow-top p-stack-lg rounded-xl flex flex-col gap-stack-md transform hover:-translate-y-1 transition-transform duration-500 cursor-default">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-3xl">auto_fix_high</span>
+<span class="font-label-sm text-label-sm text-secondary px-3 py-1 bg-secondary/10 rounded-full border border-secondary/20">СРЕДНИЙ</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">Планетарный Поток</h3>
+<p class="font-body-md text-on-surface-variant/80">Визуализация текущих транзитов. Следите за влиянием небесных тел на вашу энергетику в режиме реального времени.</p>
+</div>
+</div>
+<!-- Widget 3: Энергетический Прогресс -->
+<div class="glass-panel inner-glow-top p-stack-lg rounded-xl flex flex-col gap-stack-md transform hover:-translate-y-1 transition-transform duration-500 cursor-default">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-3xl">dynamic_form</span>
+<span class="font-label-sm text-label-sm text-primary px-3 py-1 bg-primary/10 rounded-full border border-primary/20">БОЛЬШОЙ</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">Энергетический Прогресс</h3>
+<p class="font-body-md text-on-surface-variant/80">Глубокий анализ ваших циклов. Отслеживайте фазы личного года, месяца и дня через динамические круговые индикаторы.</p>
+</div>
+</div>
+<!-- Call to Action -->
+<button class="mt-stack-md w-full py-4 bg-gradient-to-r from-secondary-container to-secondary rounded-xl font-body-md font-semibold text-white uppercase tracking-wider shadow-[0_0_20px_rgba(93,21,183,0.3)] hover:shadow-[0_0_30px_rgba(93,21,183,0.5)] transition-all active:scale-[0.98]">
+                    Установить Виджеты
+                </button>
+</div>
+</div>
+<!-- How to Install Section -->
+<section class="mt-stack-xl pt-stack-xl border-t border-white/5">
+<h2 class="font-headline-lg text-headline-lg text-center mb-stack-lg text-tertiary">Как добавить на экран</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="text-center">
+<div class="w-12 h-12 rounded-full border border-tertiary flex items-center justify-center mx-auto mb-4 font-headline-md text-tertiary">1</div>
+<p class="font-body-md text-on-surface">Удерживайте любое пустое место на экране</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 rounded-full border border-tertiary flex items-center justify-center mx-auto mb-4 font-headline-md text-tertiary">2</div>
+<p class="font-body-md text-on-surface">Нажмите «+» и выберите Aetheric Oracle</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 rounded-full border border-tertiary flex items-center justify-center mx-auto mb-4 font-headline-md text-tertiary">3</div>
+<p class="font-body-md text-on-surface">Выберите нужный формат и перетащите его</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container/30 backdrop-blur-2xl border-t border-white/10 flex justify-around items-center px-4 py-3 rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60">
+<span class="material-symbols-outlined">filter_7</span>
+<span class="font-label-sm text-label-sm">Числа</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60">
+<span class="material-symbols-outlined">style</span>
+<span class="font-label-sm text-label-sm">Таро</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container/40 text-secondary-fixed-dim rounded-full px-4 py-1 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+<span class="font-label-sm text-label-sm">Оракул</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Профиль</span>
+</div>
+</nav>
+<script>
+        // Atmospheric floating effect for the widgets preview
+        document.addEventListener('mousemove', (e) => {
+            const preview = document.getElementById('preview-container');
+            if (!preview) return;
+            
+            const x = (window.innerWidth / 2 - e.pageX) / 60;
+            const y = (window.innerHeight / 2 - e.pageY) / 60;
+            
+            preview.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+
+        // Click interaction simulation
+        const cards = document.querySelectorAll('.glass-panel');
+        cards.forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.opacity = '0.8';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = '';
+                card.style.opacity = '1';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

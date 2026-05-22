@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Oracle - Медитации</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary": "#2b3040",
+                "on-primary-fixed-variant": "#414658",
+                "on-primary-container": "#74798d",
+                "secondary": "#d5baff",
+                "on-secondary-fixed-variant": "#5d15b7",
+                "tertiary-fixed-dim": "#e9c349",
+                "surface-container-lowest": "#0c0e12",
+                "surface": "#111317",
+                "surface-container-high": "#282a2e",
+                "inverse-surface": "#e2e2e7",
+                "tertiary-fixed": "#ffe088",
+                "on-secondary-fixed": "#270057",
+                "surface-container-highest": "#333539",
+                "on-background": "#e2e2e7",
+                "surface-tint": "#c1c6db",
+                "on-tertiary-container": "#957700",
+                "surface-container": "#1e2023",
+                "secondary-fixed-dim": "#d5baff",
+                "primary-fixed": "#dde2f8",
+                "on-secondary": "#42008a",
+                "on-primary-fixed": "#161b2b",
+                "background": "#111317",
+                "surface-container-low": "#1a1c1f",
+                "on-surface": "#e2e2e7",
+                "outline-variant": "#46464c",
+                "on-secondary-container": "#c7a5ff",
+                "on-tertiary-fixed": "#241a00",
+                "primary-fixed-dim": "#c1c6db",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#110b00",
+                "surface-variant": "#333539",
+                "surface-dim": "#111317",
+                "secondary-container": "#5d15b7",
+                "on-surface-variant": "#c6c6cd",
+                "on-tertiary": "#3c2f00",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "error": "#ffb4ab",
+                "inverse-primary": "#595e70",
+                "secondary-fixed": "#ecdcff",
+                "on-tertiary-fixed-variant": "#574500",
+                "primary": "#c1c6db",
+                "inverse-on-surface": "#2e3034",
+                "outline": "#909097",
+                "tertiary": "#e9c349",
+                "surface-bright": "#37393d",
+                "primary-container": "#060b1a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "container-max-width": "1200px",
+                "stack-sm": "8px",
+                "margin-mobile": "20px",
+                "stack-lg": "32px",
+                "margin-desktop": "64px",
+                "stack-xl": "64px",
+                "stack-md": "16px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "headline-xl": ["EB Garamond"],
+                "headline-lg": ["EB Garamond"],
+                "headline-md": ["EB Garamond"],
+                "headline-lg-mobile": ["EB Garamond"],
+                "body-md": ["Manrope"],
+                "body-lg": ["Manrope"],
+                "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #111317;
+            color: #e2e2e7;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
+        }
+        .particle-wave {
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .bg-mystic-nebula {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgzLBsKCqerrkpB3krAqKVIB5KarJ6C2_nrx_KZyu7qL-mqt17pUK_VqkJWpHEox1qS933K5P9PFpMqnX0226xJr6s8dljYRyCH3AgCoCtMxDsAe2B3GLS5xBh6IB5oIKjBWMnVfj5Gv4Xt3zRj-A-GSiB23H1aW4_o2gaDqyZlIkI-hfGCW5zKP-Lm7NrlulfvZJ2vT2_MvmoFfvX2CLlkpoCAQjIwmo5R7uftqGvWMEZ6U7rD0jNIKXYy8v-a3AW1DkvNJ-aPzQ');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/30 backdrop-blur-2xl border-b border-white/10 flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-stack-sm text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cyclone</span>
+<h1 class="font-headline-md-mobile text-headline-md-mobile tracking-widest uppercase">Aetheric Oracle</h1>
+</div>
+<button class="text-tertiary hover:text-tertiary/80 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Background Layer -->
+<div class="fixed inset-0 z-0 bg-mystic-nebula opacity-60"></div>
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-surface via-transparent to-surface pointer-events-none"></div>
+<main class="relative z-10 flex-grow pt-24 pb-32 px-margin-mobile max-w-lg mx-auto w-full">
+<!-- Player Section -->
+<section class="glass-panel rounded-3xl p-stack-lg mb-stack-xl flex flex-col items-center text-center">
+<div class="w-48 h-48 rounded-full border-2 border-tertiary/20 mb-stack-lg relative p-2">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-tertiary/30 to-secondary/30 flex items-center justify-center overflow-hidden">
+<img alt="Now Playing Cover" class="w-full h-full object-cover opacity-80 mix-blend-screen" data-alt="A detailed digital artwork of a glowing sacred geometry symbol, the Flower of Life, etched in thin gold lines over a deep midnight purple nebula cloud filled with distant shimmering stars and cosmic dust. The lighting is soft and ethereal, creating a sense of deep spiritual peace and universal connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwrR99lyMpQ8b6zXcayNXlSl-ufjIvzebSpI6eZna7Oa7iz3TD6IZauLD_kaHns5zv0LR0USIy7mHdUiTBeRLxfI_ryMbWGHz7RywENHjKWMdpgbIMCeyw9FuS5fOvBlMd4kPmAUy7152B43HDY77LcIJMn88tqZINkPr2QDyavEyuK8Oep0KNCU1NXg_gP8WDBLSzkTAVJxUfmLKuYqAtuTJW6aWNTwLSDvfiN7qIa6Qnnaizu1m2AGWN3A63_NNd4DICvD_Bj6M"/>
+</div>
+<!-- Animated Visualizer Rings -->
+<div class="absolute inset-0 rounded-full border border-tertiary animate-ping opacity-20" style="animation-duration: 3s;"></div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary mb-stack-sm">Гармония Числа 7</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-stack-lg">Медитация • 12:45</p>
+<!-- Visualizer -->
+<div class="w-full h-12 flex items-center justify-center gap-1 mb-stack-lg particle-wave overflow-hidden">
+<div class="w-1 bg-tertiary/60 rounded-full transition-all duration-300 h-4" style="animation: bounce 1.2s infinite ease-in-out -0.1s;"></div>
+<div class="w-1 bg-tertiary/80 rounded-full transition-all duration-300 h-8" style="animation: bounce 1.2s infinite ease-in-out -0.3s;"></div>
+<div class="w-1 bg-tertiary rounded-full transition-all duration-300 h-10" style="animation: bounce 1.2s infinite ease-in-out -0.5s;"></div>
+<div class="w-1 bg-secondary rounded-full transition-all duration-300 h-6" style="animation: bounce 1.2s infinite ease-in-out -0.2s;"></div>
+<div class="w-1 bg-tertiary rounded-full transition-all duration-300 h-10" style="animation: bounce 1.2s infinite ease-in-out -0.6s;"></div>
+<div class="w-1 bg-tertiary/80 rounded-full transition-all duration-300 h-8" style="animation: bounce 1.2s infinite ease-in-out -0.4s;"></div>
+<div class="w-1 bg-tertiary/60 rounded-full transition-all duration-300 h-4" style="animation: bounce 1.2s infinite ease-in-out -0.1s;"></div>
+</div>
+<style>
+                @keyframes bounce {
+                    0%, 100% { height: 10px; }
+                    50% { height: 32px; }
+                }
+            </style>
+<!-- Playback Controls -->
+<div class="flex items-center justify-center gap-stack-lg">
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-4xl">skip_previous</span>
+</button>
+<button class="w-20 h-20 rounded-full bg-gradient-to-br from-tertiary to-tertiary-fixed-dim flex items-center justify-center text-on-tertiary shadow-[0_0_30px_rgba(233,195,73,0.3)] hover:scale-105 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-4xl">skip_next</span>
+</button>
+</div>
+</section>
+<!-- Playlist Section -->
+<section class="space-y-stack-md">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.2em] mb-stack-md px-2">Рекомендуемые Практики</h3>
+<!-- Meditation Card 1 -->
+<div class="glass-panel rounded-2xl p-stack-md flex items-center gap-stack-md hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 border border-white/5">
+<img alt="Meditation cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A macro photography shot of glowing crystals and white sage smoke drifting in a dark, atmospheric room. Soft golden particles float in the air, illuminated by a singular beam of warm light from above, creating a mystical and purifying ambiance for spiritual cleansing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2uRGxFvAP-b-r5XAyD2D6Rlig6rQqhNdFvxP7QqZCXUa4XFvaJO6LVEOnotwc0dlHD6exSO5bfVLye7snVwDZy4B9xgm3HyIx_yspQ3AC4BqZSmjRhB4Feky___JAVRyKUARy8cvG3Ni3qWpTsAL6PpZ_cZ2KJdeLJVOIMMRjtKHJNC47tA-JpB_X1fUDadkbE8qhs51rX9cVIY3gH1kFnBh6dnjJABLZsRNAXqb6FobQ8iuFxG3lr8d7Qi9DjSUt8UyI9TzO4Jg"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-lg text-body-lg text-on-surface">Очищение Ауры</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60">Вибрационная частота • 15:20</p>
+</div>
+<button class="text-tertiary/40 group-hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+<!-- Meditation Card 2 -->
+<div class="glass-panel rounded-2xl p-stack-md flex items-center gap-stack-md hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 border border-white/5">
+<img alt="Meditation cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An abstract cosmic scene showing a path of golden light extending into a deep space horizon filled with shimmering galaxies and celestial star clusters. The visual represents abundance and success through a high-end, digital mystical lens with deep indigo and vibrant gold colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACyrrmUfNQOVsJqjT9n4fkvC4rR7_KKf3NiSXadJCwn47t3SFS_1SJUNhYWu7q7_Efin4ZBNus3HnbLWFKBt3MZQ80IzMu59OIirle1_jHDzQ3SubwyNlQrYIKuHBTa5EBckL_-gv7IVtHKDneyZPmZG1sj8NGLaFuzW4RZiDCxVoxYRtqaNNFWCzcyPK5kx5wrpkQbE1l8FC94WT5gSV3Ok928R03x616M3FWfsRXnQcKCDzGFjGyhiRYQTq-7-p6OQO3OaWFUKo"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-lg text-body-lg text-on-surface">Вибрация Успеха</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60">Манифестация • 10:00</p>
+</div>
+<button class="text-tertiary/40 group-hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+<!-- Meditation Card 3 (Extra) -->
+<div class="glass-panel rounded-2xl p-stack-md flex items-center gap-stack-md hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 border border-white/5">
+<img alt="Meditation cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A serene landscape of a dark, star-filled night sky over a perfectly still mountain lake. The reflection of the cosmos in the water creates a symmetrical, balanced composition in shades of midnight blue and ethereal silver, evoking a sense of deep stillness and inner peace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEzFARyOph4Gg3W7BqorpjS_fAtBH9TKUqZXPBmfkZilKX4S6YxUF4v5mo6em5FaXe9JS530jjJsDnPFOODoJXlzUwbixaB4w50i0QrBiSENKJY8P2uwYgLnd7eiTvGby7uEuZnc4ggR3ccLYeWL8NJTOpMP6_jGQu8269ThpAEkx-YKO6WyBuU39NPtjOlrw4MYfH_a_0V-rO5TVcEq1sBfDf9SbfwfnJEclPiNV8SEVfAPG-Emp0tkQLk89V1PPhJrrOEKbWqys"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-lg text-body-lg text-on-surface">Потоковая Тишина</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60">Глубокое погружение • 25:00</p>
+</div>
+<button class="text-tertiary/40 group-hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/30 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(233,195,73,0.05)] flex justify-around items-center px-4 py-3 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-tertiary/80 transition-colors" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-tertiary/80 transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Destiny</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary bg-white/5 rounded-full px-4 py-1 scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_graph</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Forecast</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-tertiary/80 transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Synastry</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-tertiary/80 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for Play Button
+        const playBtn = document.querySelector('button .material-symbols-outlined[style*="play_arrow"]');
+        let isPlaying = false;
+        
+        playBtn?.parentElement?.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            playBtn.textContent = isPlaying ? 'pause' : 'play_arrow';
+            
+            // Subtle glow toggle
+            if(isPlaying) {
+                playBtn.parentElement.classList.add('shadow-[0_0_50px_rgba(233,195,73,0.6)]');
+            } else {
+                playBtn.parentElement.classList.remove('shadow-[0_0_50px_rgba(233,195,73,0.6)]');
+            }
+        });
+
+        // Add ripple effect to cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousedown', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.background = 'rgba(233,195,73,0.1)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.left = `${x - 50}px`;
+                ripple.style.top = `${y - 50}px`;
+                ripple.style.transform = 'scale(0)';
+                ripple.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.style.transform = 'scale(4)';
+                    ripple.style.opacity = '0';
+                }, 50);
+                
+                setTimeout(() => ripple.remove(), 700);
+            });
+        });
+    </script>
+</body></html>

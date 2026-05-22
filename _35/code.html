@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Oracle - Колесо Фортуны</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-container-high": "#282a2e",
+                    "on-primary-fixed": "#161b2b",
+                    "primary-container": "#060b1a",
+                    "outline-variant": "#46464c",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-dim": "#111317",
+                    "surface-container-low": "#1a1c1f",
+                    "on-primary-container": "#74798d",
+                    "surface-container": "#1e2023",
+                    "error": "#ffb4ab",
+                    "surface-variant": "#333539",
+                    "inverse-primary": "#595e70",
+                    "outline": "#909097",
+                    "on-error": "#690005",
+                    "tertiary": "#e9c349",
+                    "primary": "#c1c6db",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "secondary": "#d5baff",
+                    "background": "#111317",
+                    "on-secondary-fixed-variant": "#5d15b7",
+                    "secondary-fixed": "#ecdcff",
+                    "on-secondary": "#42008a",
+                    "primary-fixed-dim": "#c1c6db",
+                    "surface-container-lowest": "#0c0e12",
+                    "tertiary-fixed": "#ffe088",
+                    "tertiary-container": "#110b00",
+                    "inverse-on-surface": "#2e3034",
+                    "on-tertiary-container": "#957700",
+                    "inverse-surface": "#e2e2e7",
+                    "error-container": "#93000a",
+                    "secondary-container": "#5d15b7",
+                    "on-tertiary": "#3c2f00",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#111317",
+                    "primary-fixed": "#dde2f8",
+                    "on-primary-fixed-variant": "#414658",
+                    "on-primary": "#2b3040",
+                    "on-secondary-container": "#c7a5ff",
+                    "surface-tint": "#c1c6db",
+                    "surface-bright": "#37393d",
+                    "on-surface-variant": "#c6c6cd",
+                    "on-background": "#e2e2e7",
+                    "on-secondary-fixed": "#270057",
+                    "on-surface": "#e2e2e7",
+                    "surface-container-highest": "#333539",
+                    "secondary-fixed-dim": "#d5baff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-xl": "64px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "20px",
+                    "container-max-width": "1200px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                    "body-lg": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cosmic-gradient {
+            background: radial-gradient(circle at top right, #1a1c1f 0%, #0c0e12 100%);
+        }
+        .glow-gold {
+            filter: drop-shadow(0 0 8px rgba(233, 195, 73, 0.3));
+        }
+        body {
+            background-color: #111317;
+            color: #e2e2e7;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md cosmic-gradient min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background/30 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(93,21,183,0.3)]">
+<button class="p-2 transition-all active:opacity-80 active:scale-95 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-tertiary tracking-widest uppercase">Aetheric Oracle</h1>
+<button class="p-2 transition-all active:opacity-80 active:scale-95 text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile max-w-container-max-width mx-auto">
+<!-- Card View Section -->
+<section class="flex flex-col items-center mb-stack-xl">
+<div class="relative w-full max-w-[400px] aspect-[2/3] rounded-xl overflow-hidden shadow-2xl shadow-secondary-container/30 border border-white/10 group">
+<img alt="The Wheel of Fortune Tarot Card" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDylN4N1K5I06MZmSvQ-wafvU8NKNEBPDfB6yrPTaMA_Y62wCjIWJFPxlY3pSFcIxjdB7hRY23K_YAp5oqAEr18vbbXW0xCJaVF4_ht-RDYzT-kC0d5nEA4Q5uysrwbM96NbWdbOBfmvtIdKDd371SntI_YTQE_MjTUyF_riVOFGY49IXXcu2ORlLPeQ696rnOiWvppuiiXMUN6AQ-vpNmqBUHiJEA2gVboFHPXCu2p__daJ4uSYImWzELsk4uP83rLf_bWVrl1Wpk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none"></div>
+<!-- Navigation Arrows -->
+<div class="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-tertiary hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-tertiary hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="mt-stack-lg text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary glow-gold mb-2">Мудрость Аркана: Колесо Фортуны</h2>
+<div class="flex items-center justify-center gap-4 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<span>Аркан X</span>
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+<span>Судьба</span>
+</div>
+</div>
+</section>
+<!-- Insights Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Vibration & Elements Card -->
+<div class="md:col-span-4 glass-panel p-6 rounded-xl flex flex-col justify-between min-h-[160px]">
+<div>
+<h3 class="font-label-sm text-label-sm text-tertiary uppercase mb-4">Космическая вибрация</h3>
+<div class="flex items-end gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">8</span>
+<span class="text-on-surface-variant pb-2">/ 10</span>
+</div>
+</div>
+<div class="flex gap-4 mt-6">
+<div class="flex items-center gap-2 px-3 py-1 bg-secondary-container/20 border border-secondary/30 rounded-full">
+<span class="material-symbols-outlined text-[18px] text-secondary">star</span>
+<span class="font-label-sm text-label-sm text-secondary">Юпитер</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-tertiary-container/40 border border-tertiary/30 rounded-full">
+<span class="material-symbols-outlined text-[18px] text-tertiary">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-tertiary">Огонь</span>
+</div>
+</div>
+</div>
+<!-- Poetic Message Card -->
+<div class="md:col-span-8 glass-panel p-6 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-tertiary uppercase mb-4">Божественное послание</h3>
+<p class="font-headline-md text-headline-md leading-relaxed italic text-on-surface relative z-10">
+                "Все вращается, все возвращается. Твой путь предопределен звездами, но шаг за шагом ты сам вращаешь свое колесо. Доверься великому циклу бытия."
+            </p>
+<div class="mt-6 flex items-center gap-2 text-on-surface-variant italic">
+<span class="h-px w-8 bg-outline-variant"></span>
+<span class="font-body-md text-body-md">Оракул Вечного Возвращения</span>
+</div>
+</div>
+<!-- Detailed Interpretations -->
+<div class="md:col-span-12 glass-panel p-8 rounded-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-xl">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">cycle</span>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest">Цикличность</h4>
+</div>
+<p class="text-on-surface-variant font-body-md">Период перемен, когда старое уступает место новому. Колесо не знает остановок, принося с собой как уроки, так и вознаграждения.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">timeline</span>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest">Судьба</h4>
+</div>
+<p class="text-on-surface-variant font-body-md">Внезапные события, которые кажутся случайными, на самом деле являются частью более масштабного космического плана.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">upgrade</span>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest">Прорыв</h4>
+</div>
+<p class="text-on-surface-variant font-body-md">Вертикальный взлет возможен только при осознанном принятии текущего положения вещей и готовности к движению.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Action -->
+<div class="mt-stack-xl flex justify-center pb-stack-xl">
+<button class="px-8 py-4 bg-gradient-to-r from-secondary-container to-on-secondary-fixed-variant rounded-full text-white font-label-sm text-label-sm uppercase tracking-widest shadow-lg shadow-secondary/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">auto_stories</span>
+            Погрузиться в толкование
+        </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center pt-3 pb-6 px-4 bg-background/40 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-5px_20px_rgba(93,21,183,0.15)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Числа</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Таро</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary drop-shadow-[0_0_8px_rgba(233,195,73,0.5)] scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Оракул</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider mt-1">Профиль</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for the cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple floating animation for symbols
+        const animateSymbols = () => {
+            const symbols = document.querySelectorAll('.material-symbols-outlined');
+            symbols.forEach((s, idx) => {
+                if(idx % 3 === 0) {
+                    s.animate([
+                        { transform: 'translateY(0px)' },
+                        { transform: 'translateY(-5px)' },
+                        { transform: 'translateY(0px)' }
+                    ], {
+                        duration: 3000 + (idx * 200),
+                        iterations: Infinity,
+                        easing: 'ease-in-out'
+                    });
+                }
+            });
+        };
+        window.onload = animateSymbols;
+    </script>
+</body></html>

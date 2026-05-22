@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Oracle - Маг</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface-container-high": "#282a2e",
+                        "on-primary-fixed": "#161b2b",
+                        "primary-container": "#060b1a",
+                        "outline-variant": "#46464c",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-dim": "#111317",
+                        "surface-container-low": "#1a1c1f",
+                        "on-primary-container": "#74798d",
+                        "surface-container": "#1e2023",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#333539",
+                        "inverse-primary": "#595e70",
+                        "outline": "#909097",
+                        "on-error": "#690005",
+                        "tertiary": "#e9c349",
+                        "primary": "#c1c6db",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary": "#d5baff",
+                        "background": "#111317",
+                        "on-secondary-fixed-variant": "#5d15b7",
+                        "secondary-fixed": "#ecdcff",
+                        "on-secondary": "#42008a",
+                        "primary-fixed-dim": "#c1c6db",
+                        "surface-container-lowest": "#0c0e12",
+                        "tertiary-fixed": "#ffe088",
+                        "tertiary-container": "#110b00",
+                        "inverse-on-surface": "#2e3034",
+                        "on-tertiary-container": "#957700",
+                        "inverse-surface": "#e2e2e7",
+                        "error-container": "#93000a",
+                        "secondary-container": "#5d15b7",
+                        "on-tertiary": "#3c2f00",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#111317",
+                        "primary-fixed": "#dde2f8",
+                        "on-primary-fixed-variant": "#414658",
+                        "on-primary": "#2b3040",
+                        "on-secondary-container": "#c7a5ff",
+                        "surface-tint": "#c1c6db",
+                        "surface-bright": "#37393d",
+                        "on-surface-variant": "#c6c6cd",
+                        "on-background": "#e2e2e7",
+                        "on-secondary-fixed": "#270057",
+                        "on-surface": "#e2e2e7",
+                        "surface-container-highest": "#333539",
+                        "secondary-fixed-dim": "#d5baff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "64px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "20px",
+                        "container-max-width": "1200px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.05)
+        }
+        .ethereal-glow {
+            box-shadow: 0 0 30px rgba(93, 21, 183, 0.2)
+        }
+        .grain-bg {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuB-ct-fHvWGzIG9pPwMeE4zOt9cMCxlRbIhXq0K4XSVt7UbXCLeTwZ4Ksbwe7AJmlvAmfroRFIZCY-xtw6142SFBUXG8jZ-XE6QchSAgoAGe6LeSS-v2VceRxnIKpR50yHikKyakwb36jPxugB-SQCYLdBydFvE47acFLYZJHBN_A3ghHxFOBhg_7XF_pqMaYcOX8_XzGuu9yYYXj6uVQVCZ9Bj1nSS_oNgehz5yppoiFpvoHWc58VSGv3ZupociYR7MT4-4ZzFOZk);
+            opacity: 0.03;
+            pointer-events: none
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen">
+<div class="fixed inset-0 grain-bg z-0"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background/30 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(93,21,183,0.3)]">
+<button class="text-primary hover:text-secondary transition-colors material-symbols-outlined" data-icon="menu">menu</button>
+<h1 class="font-headline-md text-headline-md text-tertiary tracking-widest uppercase">Aetheric Oracle</h1>
+<button class="text-primary hover:text-secondary transition-colors material-symbols-outlined" data-icon="account_circle">account_circle</button>
+</header>
+<main class="relative z-10 pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<!-- Interpretation Canvas -->
+<div class="flex flex-col md:flex-row gap-stack-lg items-start">
+<!-- Card Visual Section -->
+<div class="w-full md:w-1/2 sticky top-24">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-tr from-secondary/30 to-tertiary/30 blur-2xl opacity-50 group-hover:opacity-75 transition duration-1000"></div>
+<div class="relative rounded-xl overflow-hidden glass-panel border-white/20 p-2">
+<img alt="The Magician Tarot Card" class="w-full h-auto rounded-lg shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw9jFTR2eR3l7OcKfugyFxx0QL_2YQPbwV9-ryS39Mf-qtSaVNCmnu5oZxs1dJYPEqGM_NHyOkTHzyJTjsPwxdgBVY7kYGiJYp0UXjtvBNW0VFgZ3t9NkpLAaxW3kobLGsgZIFN4aCF1VvRWKkTsvgSqWfMnQ-IhbJ5MoE6PRAgL427UgxPH0zE-PC0CMW--b42vC3-h2R8hD3oIdgia38g8cvbs2oMJypWwiqxdOw22Tje6wJ96DS9kc-ECkJSPKawHgK-s6gnGo"/>
+</div>
+</div>
+<!-- Correspondences Pill Container -->
+<div class="mt-stack-md flex flex-wrap gap-stack-sm justify-center">
+<div class="glass-panel px-4 py-1 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="star">star</span>
+<span class="font-label-sm text-label-sm uppercase text-tertiary tracking-wider">Меркурий</span>
+</div>
+<div class="glass-panel px-4 py-1 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="local_fire_department">local_fire_department</span>
+<span class="font-label-sm text-label-sm uppercase text-tertiary tracking-wider">Огонь</span>
+</div>
+<div class="glass-panel px-4 py-1 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="air">air</span>
+<span class="font-label-sm text-label-sm uppercase text-tertiary tracking-wider">Воздух</span>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="w-full md:w-1/2 space-y-stack-lg">
+<header class="space-y-stack-sm">
+<h2 class="font-headline-xl text-headline-xl md:text-headline-xl text-on-surface">Мудрость Аркана: Маг</h2>
+<div class="w-24 h-px bg-gradient-to-r from-tertiary to-transparent"></div>
+</header>
+<!-- Vibration Indicator -->
+<div class="glass-panel p-stack-md rounded-xl space-y-stack-sm">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Уровень вибрации</span>
+<span class="font-headline-md text-headline-md text-tertiary">10/10</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-tertiary w-full shadow-[0_0_10px_rgba(233,195,73,0.5)]" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Manifestation Message -->
+<div class="space-y-stack-md">
+<p class="font-headline-md text-headline-md italic text-primary leading-relaxed">
+                    "Что наверху, то и внизу. Вы — мост между небесным и материальным, архитектор своей собственной реальности."
+                </p>
+<div class="space-y-stack-sm text-on-surface-variant font-body-md">
+<p>Маг — это высший катализатор перемен. Он стоит, указывая одной рукой на небеса, а другой — на землю, направляя чистую энергию космоса в физическое воплощение. В его присутствии потенциал становится кинетикой, а мысль — действием.</p>
+<p>Это ваш призыв к мастерству. Вы обладаете всеми необходимыми инструментами — интеллектом, эмоциями, волей и ресурсами — чтобы формировать ту жизнь, которую желаете. Вселенная не случается с вами; она случается через вас.</p>
+</div>
+</div>
+<!-- Attributes Bento Grid -->
+<div class="grid grid-cols-2 gap-stack-sm">
+<div class="glass-panel p-stack-md rounded-xl flex flex-col items-center text-center group hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-secondary mb-2 group-hover:scale-110 transition-transform" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">Сила воли</span>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex flex-col items-center text-center group hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-secondary mb-2 group-hover:scale-110 transition-transform" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">Действие</span>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex flex-col items-center text-center group hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-secondary mb-2 group-hover:scale-110 transition-transform" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">Инновация</span>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex flex-col items-center text-center group hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-secondary mb-2 group-hover:scale-110 transition-transform" data-icon="diamond">diamond</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">Ресурсы</span>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-4 rounded-xl bg-gradient-to-r from-secondary-container to-on-secondary-fixed-variant text-white font-label-sm text-label-sm uppercase tracking-widest shadow-[0_0_20px_rgba(93,21,183,0.3)] hover:brightness-110 active:scale-95 transition-all">
+                Манифестировать эту вибрацию
+            </button>
+</div>
+</div>
+<!-- Secondary Insights Section -->
+<section class="mt-stack-xl space-y-stack-lg">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface text-center">Духовные озарения</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="glass-panel p-stack-lg rounded-xl border-t border-l border-white/20">
+<span class="font-label-sm text-label-sm text-tertiary uppercase block mb-stack-sm">Ежедневная вибрация</span>
+<p class="font-body-md text-on-surface-variant">Сосредоточьте свое намерение на одной единственной цели сегодня. Маг дарует вам точность лазера и глубину океана.</p>
+</div>
+<div class="glass-panel p-stack-lg rounded-xl border-t border-l border-white/20">
+<span class="font-label-sm text-label-sm text-tertiary uppercase block mb-stack-sm">Теневой аспект</span>
+<p class="font-body-md text-on-surface-variant">Остерегайтесь манипуляций или распыления энергии. Мастер без направления — это всего лишь фокусник.</p>
+</div>
+<div class="glass-panel p-stack-lg rounded-xl border-t border-l border-white/20">
+<span class="font-label-sm text-label-sm text-tertiary uppercase block mb-stack-sm">Соответствия</span>
+<p class="font-body-md text-on-surface-variant">Эта вибрация резонирует с желтым авантюрином, чистым кварцем и ароматом мяты и гвоздики.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center pt-3 pb-6 px-4 bg-background/40 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-5px_20px_rgba(93,21,183,0.15)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 font-label-sm text-label-sm uppercase tracking-wider hover:text-secondary" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calculate">calculate</span>
+        Числа
+    </a>
+<a class="flex flex-col items-center justify-center text-tertiary drop-shadow-[0_0_8px_rgba(233,195,73,0.5)] font-label-sm text-label-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+        Таро
+    </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 font-label-sm text-label-sm uppercase tracking-wider hover:text-secondary" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+        Оракул
+    </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 font-label-sm text-label-sm uppercase tracking-wider hover:text-secondary" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+        Профиль
+    </a>
+</nav>
+<script>
+    // Micro-interactions for floating effect
+    document.addEventListener('mousemove', (e) => {
+        const panels = document.querySelectorAll('.glass-panel');
+        panels.forEach(panel => {
+            const rect = panel.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const moveX = (e.clientX - centerX) / 100;
+            const moveY = (e.clientY - centerY) / 100;
+            
+            panel.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
+
+    // Vibration bar animation on load
+    window.addEventListener('DOMContentLoaded', () => {
+        const bar = document.querySelector('.h-full.bg-gradient-to-r');
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.transition = 'width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            bar.style.width = '100%';
+        }, 300);
+    });
+</script>
+</body></html>
